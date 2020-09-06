@@ -27,6 +27,11 @@ module.exports = function (app) {
   // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
   // ---------------------------------------------------------------------------
 
+  app.get("/", function(req, res) {
+    res.json(path.join(__dirname, "public/index.html"));
+  });
+  
+
   app.get("/api/notes", function (req, res) {
     // res.json(dbNotes);
     fs.readFile("db/db.json", "utf8", function(error,data) {
