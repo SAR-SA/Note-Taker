@@ -28,7 +28,10 @@ module.exports = function (app) {
   // ---------------------------------------------------------------------------
 
   app.get("/api/notes", function (req, res) {
-    res.json(dbNotes);
+    // res.json(dbNotes);
+    fs.readFile("db/db.json", "utf8", function(error,data) {
+      res.json(JSON.parse(data));
+    });
   });
 
 
@@ -59,11 +62,11 @@ module.exports = function (app) {
   app.delete("/api/notes/:id", function (req, res) {
     // Empty out the arrays of data
     let id = req.params.id;
-    console.log("dbNotes", dbNotes)
-    const notes = dbNotes.filter(note => note["id"] != id)
+    console.log("dbNotes", dbNotes);
+    const notes = dbNotes.filter(note => note["id"] != id);
     console.log("notes after filter", notes);
     dbUpdate(notes);
-    res.send(notes);
+    res.json(dbNotes);
   });
 };
 
