@@ -23,7 +23,6 @@ For users that need to keep track of a lot of information, it's easy to forget o
 ## License<a id="licensego"></a>
 
 MIT License
-## Contribution Guidelines<a id="contrigo"></a>
 
 
 ## Authors<a id="authorgo"></a>
